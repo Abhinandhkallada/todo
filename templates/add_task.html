@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="">task name</label>
+        <input type="text" placeholder="enter your task name" name="taskname">
+        <label for="">task date</label>
+        <input type="date" placeholder="enter the date" name="date">
+        <button>submit</button>
+    </form>
+</body>
+</html>
