@@ -1,18 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Tasks</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 500px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .15);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #222;
+        }
+
+        .task-form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .task-form input[type="text"] {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .task-form input[type="date"] {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .task-form button {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .task-form button:hover {
+            background: #333;
+        }
+
+        .task-list {
+            margin-top: 30px;
+        }
+
+        .task {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .12);
+        }
+
+        .left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .right {
+            display: flex;
+            gap: 18px;
+        }
+
+        .right i {
+            cursor: pointer;
+            color: #555;
+        }
+
+        .right i:hover {
+            color: #000;
+        }
+    </style>
 </head>
+
 <body>
-    <form method="POST">
-        {% csrf_token %}
-        <label for="">task name</label>
-        <input type="text" name="task_name" value="{{a.taskname}}">
-        <label for="">task date</label>
-        <input type="date" name="task_date" value="{{a.date|date:'Y-m-d'}}">
-        <button>update</button>
-    </form>
+
+    <div class="container">
+
+        <h1>Update Task</h1>
+
+        <form method="POST" class="task-form">
+            {% csrf_token %}
+
+            <input type="text" name="update-name" placeholder="Type your task here..." required value="{{a.taskname}}">
+
+            <input type="date" name="update-date" required value="{{a.date|date:'Y-m-d'}}">
+
+            <button type="submit">
+                <i class="fa-solid fa-plus"></i> Update
+            </button>
+        </form>
+    </div>
+
+    </div>
+
+    </div>
+
 </body>
+
 </html>
